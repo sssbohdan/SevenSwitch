@@ -229,6 +229,11 @@ import QuartzCore
         self.setup()
     }
     
+    override open func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        
+        setOn(on, animated: true)
+    }
     
     /*
     *   Setup the individual elements of the switch and set default values
@@ -398,7 +403,7 @@ import QuartzCore
             let normalKnobWidth = frame.size.height - 2
             if self.on {
                 thumbView.frame = CGRect(x: frame.size.width - (normalKnobWidth + 1), y: 1, width: frame.size.height - 2, height: normalKnobWidth)
-                thumbImageView.frame = CGRect(x: frame.size.width - normalKnobWidth, y: 0, width: normalKnobWidth, height: normalKnobWidth)
+                thumbImageView.frame = CGRect(x: 0, y: 0, width: normalKnobWidth, height: normalKnobWidth)
             }
             else {
                 thumbView.frame = CGRect(x: 1, y: 1, width: normalKnobWidth, height: normalKnobWidth)
